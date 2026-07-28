@@ -1,0 +1,18 @@
+{
+  "name": "agentskit-tds-provider-swap-experiment",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "baseline": "node experiment.mjs --deterministic",
+    "live": "node --env-file=.env experiment.mjs --live",
+    "test": "node --test test.mjs",
+    "visuals": "node scripts/generate-visuals.mjs"
+  },
+  "dependencies": {
+    "@agentskit/adapters": "0.14.0",
+    "@agentskit/eval": "0.6.0"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}

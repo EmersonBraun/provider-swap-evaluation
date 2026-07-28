@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">The boundary held; provider behavior differed</title>
+  <desc id="description">Comparison of task pass rate, valid terminal outcomes, and latency for OpenRouter and Gemini across 30 requests each.</desc>
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <style>
+    text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #101828; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 16px; fill: #475467; }
+    .label { font-size: 16px; font-weight: 650; }
+    .small { font-size: 14px; fill: #475467; }
+    .metric { font-size: 22px; font-weight: 700; }
+  </style>
+  <text x="48" y="56" class="title">The boundary held; provider behavior differed</text>
+  <text x="48" y="88" class="subtitle">30 requests per provider · same dataset, prompt, scorers, invocation, and 25-second timeout</text>
+  <text x="48" y="140" class="label">Task pass rate</text>
+  <text x="48" y="184" class="label">OpenRouter</text>
+  <rect x="260" y="165" width="520" height="26" rx="7" fill="#eaecf0"/>
+  <rect x="260" y="165" width="485.3333333333333" height="26" rx="7" fill="#2563eb"/>
+  <text x="800" y="185" class="metric">93.3%</text>
+  <text x="48" y="234" class="label">Gemini</text>
+  <rect x="260" y="215" width="520" height="26" rx="7" fill="#eaecf0"/>
+  <rect x="260" y="215" width="450.6666666666667" height="26" rx="7" fill="#d97706"/>
+  <text x="800" y="235" class="metric">86.7%</text>
+  <text x="48" y="295" class="label">Valid terminal outcomes</text>
+  <text x="48" y="339" class="label">OpenRouter</text>
+  <rect x="260" y="320" width="520" height="26" rx="7" fill="#eaecf0"/>
+  <rect x="260" y="320" width="485.3333333333333" height="26" rx="7" fill="#2563eb"/>
+  <text x="800" y="340" class="metric">93.3%</text>
+  <text x="48" y="389" class="label">Gemini</text>
+  <rect x="260" y="370" width="520" height="26" rx="7" fill="#eaecf0"/>
+  <rect x="260" y="370" width="520" height="26" rx="7" fill="#d97706"/>
+  <text x="800" y="390" class="metric">100.0%</text>
+  <line x1="48" y1="450" x2="1152" y2="450" stroke="#d0d5dd" stroke-width="2"/>
+  <text x="48" y="500" class="label">Latency</text>
+  <rect x="48" y="530" width="510" height="150" rx="14" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+  <text x="78" y="568" class="label">OpenRouter</text>
+  <text x="78" y="610" class="metric">p50 5,342 ms</text>
+  <text x="78" y="650" class="metric">p95 25,002 ms</text>
+  <rect x="642" y="530" width="510" height="150" rx="14" fill="#f8fafc" stroke="#d97706" stroke-width="2"/>
+  <text x="672" y="568" class="label">Gemini</text>
+  <text x="672" y="610" class="metric">p50 776 ms</text>
+  <text x="672" y="650" class="metric">p95 11,245 ms</text>
+  <text x="48" y="724" class="small">Source: preserved live run generated 2026-07-28. Latency includes network and provider queue time.</text>
+</svg>

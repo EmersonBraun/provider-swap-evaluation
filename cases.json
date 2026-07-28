@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "name": "provider-swap-baseline",
+  "systemPrompt": "Follow the requested output format exactly. Return only the answer, without explanation, Markdown, or surrounding punctuation.",
+  "cases": [
+    {
+      "id": "arithmetic",
+      "input": "Calculate 17 * 23. Return digits only.",
+      "expected": "391",
+      "scorer": "exact"
+    },
+    {
+      "id": "sorting",
+      "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+      "expected": "amber blue green",
+      "scorer": "exact"
+    },
+    {
+      "id": "context-extraction",
+      "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+      "expected": "Kestrel-47",
+      "scorer": "exact-case-insensitive"
+    },
+    {
+      "id": "binary-conversion",
+      "input": "Convert binary 101101 to decimal. Return digits only.",
+      "expected": "45",
+      "scorer": "exact"
+    },
+    {
+      "id": "structured-output",
+      "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+      "expected": {
+        "ready": true,
+        "count": 3
+      },
+      "scorer": "json"
+    },
+    {
+      "id": "sequence",
+      "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+      "expected": "42",
+      "scorer": "exact"
+    },
+    {
+      "id": "initialism",
+      "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+      "expected": "CRAFT",
+      "scorer": "exact-case-insensitive"
+    },
+    {
+      "id": "string-transform",
+      "input": "Reverse this exact string and preserve case: AgentKit",
+      "expected": "tiKtnegA",
+      "scorer": "exact"
+    },
+    {
+      "id": "logic",
+      "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+      "expected": "no",
+      "scorer": "exact-case-insensitive"
+    },
+    {
+      "id": "date",
+      "input": "Return the ISO date exactly three days after 2026-07-28.",
+      "expected": "2026-07-31",
+      "scorer": "exact"
+    }
+  ]
+}

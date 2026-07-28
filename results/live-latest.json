@@ -1,0 +1,1358 @@
+{
+  "schemaVersion": 1,
+  "experiment": "Can your agent evaluation survive a provider swap?",
+  "mode": "live",
+  "generatedAt": "2026-07-28T14:02:00.465Z",
+  "dataset": {
+    "name": "provider-swap-baseline",
+    "caseCount": 10,
+    "scorers": [
+      "exact",
+      "exact-case-insensitive",
+      "json"
+    ]
+  },
+  "controls": {
+    "sameDataset": true,
+    "sameSystemPrompt": true,
+    "sameScorers": true,
+    "sameInvocationBoundary": true,
+    "providerSpecificPrompting": false,
+    "requestTimeoutMs": 25000
+  },
+  "providers": [
+    {
+      "name": "openrouter:openai/gpt-oss-20b:free",
+      "summary": {
+        "repetitions": 3,
+        "cases": 30,
+        "passed": 28,
+        "passRate": 0.9333333333333333,
+        "latencyMs": {
+          "p50": 5342,
+          "p95": 25002
+        },
+        "terminalCorrectness": {
+          "valid": 28,
+          "total": 30
+        },
+        "inputMutationFailures": 0,
+        "errorChunks": 0,
+        "requestTimeouts": 2,
+        "streamErrors": 0,
+        "tokenUsage": {
+          "prompt": 3171,
+          "completion": 4180,
+          "reportedCases": 28
+        },
+        "costUsd": null,
+        "costNote": "Cost remains null unless a reproducible model-specific pricing snapshot is added to the evidence."
+      },
+      "runs": [
+        {
+          "repetition": 1,
+          "eval": {
+            "totalCases": 10,
+            "passed": 9,
+            "failed": 1,
+            "accuracy": 0.9,
+            "results": [
+              {
+                "input": "Calculate 17 * 23. Return digits only.",
+                "output": "391",
+                "passed": true,
+                "latencyMs": 4340,
+                "tokenUsage": {
+                  "prompt": 106,
+                  "completion": 33
+                }
+              },
+              {
+                "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+                "output": "amber blue green",
+                "passed": true,
+                "latencyMs": 3935,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 52
+                }
+              },
+              {
+                "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+                "output": "Kestrel-47",
+                "passed": true,
+                "latencyMs": 2028,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 65
+                }
+              },
+              {
+                "input": "Convert binary 101101 to decimal. Return digits only.",
+                "output": "45",
+                "passed": true,
+                "latencyMs": 2744,
+                "tokenUsage": {
+                  "prompt": 107,
+                  "completion": 95
+                }
+              },
+              {
+                "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+                "output": "{\"ready\":true,\"count\":3}",
+                "passed": true,
+                "latencyMs": 21966,
+                "tokenUsage": {
+                  "prompt": 118,
+                  "completion": 93
+                }
+              },
+              {
+                "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+                "output": "42",
+                "passed": true,
+                "latencyMs": 9794,
+                "tokenUsage": {
+                  "prompt": 122,
+                  "completion": 183
+                }
+              },
+              {
+                "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+                "output": "CRAFT",
+                "passed": true,
+                "latencyMs": 17108,
+                "tokenUsage": {
+                  "prompt": 115,
+                  "completion": 570
+                }
+              },
+              {
+                "input": "Reverse this exact string and preserve case: AgentKit",
+                "output": "",
+                "passed": false,
+                "latencyMs": 25002
+              },
+              {
+                "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+                "output": "no",
+                "passed": true,
+                "latencyMs": 16621,
+                "tokenUsage": {
+                  "prompt": 121,
+                  "completion": 163
+                }
+              },
+              {
+                "input": "Return the ISO date exactly three days after 2026-07-28.",
+                "output": "2026-07-31",
+                "passed": true,
+                "latencyMs": 2195,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 50
+                }
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "input": "Calculate 17 * 23. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 27,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+              "inputMutated": false,
+              "chunkCount": 46,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+              "inputMutated": false,
+              "chunkCount": 59,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Convert binary 101101 to decimal. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 89,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+              "inputMutated": false,
+              "chunkCount": 87,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 177,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+              "inputMutated": false,
+              "chunkCount": 564,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Reverse this exact string and preserve case: AgentKit",
+              "inputMutated": false,
+              "chunkCount": 355,
+              "terminalType": "text",
+              "errorChunks": 0,
+              "usageReported": false,
+              "requestTimedOut": true,
+              "streamError": null
+            },
+            {
+              "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+              "inputMutated": false,
+              "chunkCount": 155,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the ISO date exactly three days after 2026-07-28.",
+              "inputMutated": false,
+              "chunkCount": 44,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            }
+          ]
+        },
+        {
+          "repetition": 2,
+          "eval": {
+            "totalCases": 10,
+            "passed": 10,
+            "failed": 0,
+            "accuracy": 1,
+            "results": [
+              {
+                "input": "Calculate 17 * 23. Return digits only.",
+                "output": "391",
+                "passed": true,
+                "latencyMs": 1817,
+                "tokenUsage": {
+                  "prompt": 106,
+                  "completion": 31
+                }
+              },
+              {
+                "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+                "output": "amber blue green",
+                "passed": true,
+                "latencyMs": 5240,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 49
+                }
+              },
+              {
+                "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+                "output": "Kestrel-47",
+                "passed": true,
+                "latencyMs": 8481,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 195
+                }
+              },
+              {
+                "input": "Convert binary 101101 to decimal. Return digits only.",
+                "output": "45",
+                "passed": true,
+                "latencyMs": 4621,
+                "tokenUsage": {
+                  "prompt": 107,
+                  "completion": 127
+                }
+              },
+              {
+                "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+                "output": "{\"ready\":true,\"count\":3}",
+                "passed": true,
+                "latencyMs": 3004,
+                "tokenUsage": {
+                  "prompt": 118,
+                  "completion": 79
+                }
+              },
+              {
+                "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+                "output": "42",
+                "passed": true,
+                "latencyMs": 5950,
+                "tokenUsage": {
+                  "prompt": 122,
+                  "completion": 134
+                }
+              },
+              {
+                "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+                "output": "CRAFT",
+                "passed": true,
+                "latencyMs": 5342,
+                "tokenUsage": {
+                  "prompt": 115,
+                  "completion": 97
+                }
+              },
+              {
+                "input": "Reverse this exact string and preserve case: AgentKit",
+                "output": "tiKtnegA",
+                "passed": true,
+                "latencyMs": 19275,
+                "tokenUsage": {
+                  "prompt": 105,
+                  "completion": 582
+                }
+              },
+              {
+                "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+                "output": "no",
+                "passed": true,
+                "latencyMs": 4649,
+                "tokenUsage": {
+                  "prompt": 121,
+                  "completion": 143
+                }
+              },
+              {
+                "input": "Return the ISO date exactly three days after 2026-07-28.",
+                "output": "2026-07-31",
+                "passed": true,
+                "latencyMs": 5128,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 121
+                }
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "input": "Calculate 17 * 23. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 25,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+              "inputMutated": false,
+              "chunkCount": 43,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+              "inputMutated": false,
+              "chunkCount": 189,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Convert binary 101101 to decimal. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 121,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+              "inputMutated": false,
+              "chunkCount": 73,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 128,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+              "inputMutated": false,
+              "chunkCount": 91,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Reverse this exact string and preserve case: AgentKit",
+              "inputMutated": false,
+              "chunkCount": 576,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+              "inputMutated": false,
+              "chunkCount": 137,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the ISO date exactly three days after 2026-07-28.",
+              "inputMutated": false,
+              "chunkCount": 115,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            }
+          ]
+        },
+        {
+          "repetition": 3,
+          "eval": {
+            "totalCases": 10,
+            "passed": 9,
+            "failed": 1,
+            "accuracy": 0.9,
+            "results": [
+              {
+                "input": "Calculate 17 * 23. Return digits only.",
+                "output": "391",
+                "passed": true,
+                "latencyMs": 5749,
+                "tokenUsage": {
+                  "prompt": 106,
+                  "completion": 73
+                }
+              },
+              {
+                "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+                "output": "amber blue green",
+                "passed": true,
+                "latencyMs": 4386,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 121
+                }
+              },
+              {
+                "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+                "output": "Kestrel-47",
+                "passed": true,
+                "latencyMs": 3840,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 102
+                }
+              },
+              {
+                "input": "Convert binary 101101 to decimal. Return digits only.",
+                "output": "45",
+                "passed": true,
+                "latencyMs": 7250,
+                "tokenUsage": {
+                  "prompt": 107,
+                  "completion": 221
+                }
+              },
+              {
+                "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+                "output": "{\"ready\":true,\"count\":3}",
+                "passed": true,
+                "latencyMs": 4283,
+                "tokenUsage": {
+                  "prompt": 118,
+                  "completion": 59
+                }
+              },
+              {
+                "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+                "output": "42",
+                "passed": true,
+                "latencyMs": 6624,
+                "tokenUsage": {
+                  "prompt": 122,
+                  "completion": 254
+                }
+              },
+              {
+                "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+                "output": "CRAFT",
+                "passed": true,
+                "latencyMs": 11875,
+                "tokenUsage": {
+                  "prompt": 115,
+                  "completion": 128
+                }
+              },
+              {
+                "input": "Reverse this exact string and preserve case: AgentKit",
+                "output": "",
+                "passed": false,
+                "latencyMs": 25002
+              },
+              {
+                "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+                "output": "no",
+                "passed": true,
+                "latencyMs": 23504,
+                "tokenUsage": {
+                  "prompt": 121,
+                  "completion": 203
+                }
+              },
+              {
+                "input": "Return the ISO date exactly three days after 2026-07-28.",
+                "output": "2026-07-31",
+                "passed": true,
+                "latencyMs": 6399,
+                "tokenUsage": {
+                  "prompt": 111,
+                  "completion": 157
+                }
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "input": "Calculate 17 * 23. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 67,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+              "inputMutated": false,
+              "chunkCount": 115,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+              "inputMutated": false,
+              "chunkCount": 96,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Convert binary 101101 to decimal. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 215,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+              "inputMutated": false,
+              "chunkCount": 53,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 248,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+              "inputMutated": false,
+              "chunkCount": 122,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Reverse this exact string and preserve case: AgentKit",
+              "inputMutated": false,
+              "chunkCount": 1091,
+              "terminalType": "text",
+              "errorChunks": 0,
+              "usageReported": false,
+              "requestTimedOut": true,
+              "streamError": null
+            },
+            {
+              "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+              "inputMutated": false,
+              "chunkCount": 196,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the ISO date exactly three days after 2026-07-28.",
+              "inputMutated": false,
+              "chunkCount": 151,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gemini:gemini-3.5-flash-lite",
+      "summary": {
+        "repetitions": 3,
+        "cases": 30,
+        "passed": 26,
+        "passRate": 0.8666666666666667,
+        "latencyMs": {
+          "p50": 776,
+          "p95": 11245
+        },
+        "terminalCorrectness": {
+          "valid": 30,
+          "total": 30
+        },
+        "inputMutationFailures": 0,
+        "errorChunks": 1,
+        "requestTimeouts": 0,
+        "streamErrors": 0,
+        "tokenUsage": {
+          "prompt": 1204,
+          "completion": 127,
+          "reportedCases": 29
+        },
+        "costUsd": null,
+        "costNote": "Cost remains null unless a reproducible model-specific pricing snapshot is added to the evidence."
+      },
+      "runs": [
+        {
+          "repetition": 1,
+          "eval": {
+            "totalCases": 10,
+            "passed": 9,
+            "failed": 1,
+            "accuracy": 0.9,
+            "results": [
+              {
+                "input": "Calculate 17 * 23. Return digits only.",
+                "output": "391",
+                "passed": true,
+                "latencyMs": 11445,
+                "tokenUsage": {
+                  "prompt": 36,
+                  "completion": 3
+                }
+              },
+              {
+                "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+                "output": "amber blue green",
+                "passed": true,
+                "latencyMs": 4765,
+                "tokenUsage": {
+                  "prompt": 38,
+                  "completion": 3
+                }
+              },
+              {
+                "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+                "output": "Kestrel-47",
+                "passed": true,
+                "latencyMs": 3713,
+                "tokenUsage": {
+                  "prompt": 39,
+                  "completion": 5
+                }
+              },
+              {
+                "input": "Convert binary 101101 to decimal. Return digits only.",
+                "output": "45",
+                "passed": true,
+                "latencyMs": 3023,
+                "tokenUsage": {
+                  "prompt": 39,
+                  "completion": 2
+                }
+              },
+              {
+                "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+                "output": "{\"ready\": true, \"count\": 3}",
+                "passed": true,
+                "latencyMs": 2210,
+                "tokenUsage": {
+                  "prompt": 46,
+                  "completion": 11
+                }
+              },
+              {
+                "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+                "output": "42",
+                "passed": true,
+                "latencyMs": 776,
+                "tokenUsage": {
+                  "prompt": 53,
+                  "completion": 2
+                }
+              },
+              {
+                "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+                "output": "CRAFT",
+                "passed": true,
+                "latencyMs": 460,
+                "tokenUsage": {
+                  "prompt": 43,
+                  "completion": 2
+                }
+              },
+              {
+                "input": "Reverse this exact string and preserve case: AgentKit",
+                "output": "tiktnegA",
+                "passed": false,
+                "latencyMs": 528,
+                "tokenUsage": {
+                  "prompt": 33,
+                  "completion": 4
+                }
+              },
+              {
+                "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+                "output": "No",
+                "passed": true,
+                "latencyMs": 496,
+                "tokenUsage": {
+                  "prompt": 49,
+                  "completion": 1
+                }
+              },
+              {
+                "input": "Return the ISO date exactly three days after 2026-07-28.",
+                "output": "2026-07-31",
+                "passed": true,
+                "latencyMs": 461,
+                "tokenUsage": {
+                  "prompt": 43,
+                  "completion": 10
+                }
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "input": "Calculate 17 * 23. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Convert binary 101101 to decimal. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Reverse this exact string and preserve case: AgentKit",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the ISO date exactly three days after 2026-07-28.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            }
+          ]
+        },
+        {
+          "repetition": 2,
+          "eval": {
+            "totalCases": 10,
+            "passed": 8,
+            "failed": 2,
+            "accuracy": 0.8,
+            "results": [
+              {
+                "input": "Calculate 17 * 23. Return digits only.",
+                "output": "391",
+                "passed": true,
+                "latencyMs": 452,
+                "tokenUsage": {
+                  "prompt": 36,
+                  "completion": 3
+                }
+              },
+              {
+                "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+                "output": "amber blue green",
+                "passed": true,
+                "latencyMs": 600,
+                "tokenUsage": {
+                  "prompt": 38,
+                  "completion": 3
+                }
+              },
+              {
+                "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+                "output": "Kestrel-47",
+                "passed": true,
+                "latencyMs": 683,
+                "tokenUsage": {
+                  "prompt": 39,
+                  "completion": 5
+                }
+              },
+              {
+                "input": "Convert binary 101101 to decimal. Return digits only.",
+                "output": "45",
+                "passed": true,
+                "latencyMs": 11245,
+                "tokenUsage": {
+                  "prompt": 39,
+                  "completion": 2
+                }
+              },
+              {
+                "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+                "output": "{\"ready\": true, \"count\": 3}",
+                "passed": true,
+                "latencyMs": 7081,
+                "tokenUsage": {
+                  "prompt": 46,
+                  "completion": 11
+                }
+              },
+              {
+                "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+                "output": "",
+                "passed": false,
+                "latencyMs": 1096
+              },
+              {
+                "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+                "output": "CRAFT",
+                "passed": true,
+                "latencyMs": 9078,
+                "tokenUsage": {
+                  "prompt": 43,
+                  "completion": 2
+                }
+              },
+              {
+                "input": "Reverse this exact string and preserve case: AgentKit",
+                "output": "tiKnegA",
+                "passed": false,
+                "latencyMs": 3057,
+                "tokenUsage": {
+                  "prompt": 33,
+                  "completion": 4
+                }
+              },
+              {
+                "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+                "output": "No",
+                "passed": true,
+                "latencyMs": 3806,
+                "tokenUsage": {
+                  "prompt": 49,
+                  "completion": 1
+                }
+              },
+              {
+                "input": "Return the ISO date exactly three days after 2026-07-28.",
+                "output": "2026-07-31",
+                "passed": true,
+                "latencyMs": 1815,
+                "tokenUsage": {
+                  "prompt": 43,
+                  "completion": 10
+                }
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "input": "Calculate 17 * 23. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Convert binary 101101 to decimal. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 1,
+              "terminalType": "error",
+              "errorChunks": 1,
+              "usageReported": false,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Reverse this exact string and preserve case: AgentKit",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the ISO date exactly three days after 2026-07-28.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            }
+          ]
+        },
+        {
+          "repetition": 3,
+          "eval": {
+            "totalCases": 10,
+            "passed": 9,
+            "failed": 1,
+            "accuracy": 0.9,
+            "results": [
+              {
+                "input": "Calculate 17 * 23. Return digits only.",
+                "output": "391",
+                "passed": true,
+                "latencyMs": 814,
+                "tokenUsage": {
+                  "prompt": 36,
+                  "completion": 3
+                }
+              },
+              {
+                "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+                "output": "amber blue green",
+                "passed": true,
+                "latencyMs": 1267,
+                "tokenUsage": {
+                  "prompt": 38,
+                  "completion": 3
+                }
+              },
+              {
+                "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+                "output": "Kestrel-47",
+                "passed": true,
+                "latencyMs": 511,
+                "tokenUsage": {
+                  "prompt": 39,
+                  "completion": 5
+                }
+              },
+              {
+                "input": "Convert binary 101101 to decimal. Return digits only.",
+                "output": "45",
+                "passed": true,
+                "latencyMs": 470,
+                "tokenUsage": {
+                  "prompt": 39,
+                  "completion": 2
+                }
+              },
+              {
+                "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+                "output": "{\"ready\": true, \"count\": 3}",
+                "passed": true,
+                "latencyMs": 488,
+                "tokenUsage": {
+                  "prompt": 46,
+                  "completion": 11
+                }
+              },
+              {
+                "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+                "output": "42",
+                "passed": true,
+                "latencyMs": 540,
+                "tokenUsage": {
+                  "prompt": 53,
+                  "completion": 2
+                }
+              },
+              {
+                "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+                "output": "CRAFT",
+                "passed": true,
+                "latencyMs": 465,
+                "tokenUsage": {
+                  "prompt": 43,
+                  "completion": 2
+                }
+              },
+              {
+                "input": "Reverse this exact string and preserve case: AgentKit",
+                "output": "tiktnegA",
+                "passed": false,
+                "latencyMs": 489,
+                "tokenUsage": {
+                  "prompt": 33,
+                  "completion": 4
+                }
+              },
+              {
+                "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+                "output": "No",
+                "passed": true,
+                "latencyMs": 463,
+                "tokenUsage": {
+                  "prompt": 49,
+                  "completion": 1
+                }
+              },
+              {
+                "input": "Return the ISO date exactly three days after 2026-07-28.",
+                "output": "2026-07-31",
+                "passed": true,
+                "latencyMs": 10825,
+                "tokenUsage": {
+                  "prompt": 43,
+                  "completion": 10
+                }
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "input": "Calculate 17 * 23. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Sort these words alphabetically and return them separated by one space: green amber blue",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "The deployment code is Kestrel-47. Return only the deployment code.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Convert binary 101101 to decimal. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return valid JSON with exactly two keys in this order: ready set to true, and count set to 3.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the next number in this sequence: 2, 6, 12, 20, 30. Return digits only.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the first letter of each word, joined with no separators: Contracts Reduce Accidental Framework Takeover",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Reverse this exact string and preserve case: AgentKit",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "All adapters are boundaries. Some boundaries are stable. Does it logically follow that some adapters are stable? Return only yes or no.",
+              "inputMutated": false,
+              "chunkCount": 4,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            },
+            {
+              "input": "Return the ISO date exactly three days after 2026-07-28.",
+              "inputMutated": false,
+              "chunkCount": 6,
+              "terminalType": "done",
+              "errorChunks": 0,
+              "usageReported": true,
+              "requestTimedOut": false,
+              "streamError": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The deterministic baseline validates the evaluation boundary, not model quality.",
+    "Live quality claims require at least two independent providers and repeated runs.",
+    "Latency includes network and provider queue time.",
+    "Cost is not inferred when usage or a dated pricing snapshot is unavailable.",
+    "The dataset is intentionally small and tests constrained reasoning and instruction following, not domain expertise."
+  ]
+}
