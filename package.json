@@ -1,5 +1,5 @@
 {
-  "name": "agentskit-tds-provider-swap-experiment",
+  "name": "provider-swap-evaluation",
   "private": true,
   "type": "module",
   "scripts": {
